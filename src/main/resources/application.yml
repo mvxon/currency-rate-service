@@ -1,0 +1,2 @@
+nb-rb:
+  rate-url: https://api.nbrb.by/exrates/rates/{currencyAbbreviation}
