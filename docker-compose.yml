@@ -2,8 +2,7 @@ version: '3.1'
 services:
   app:
     container_name: currency_rate_app
-    image: currency-rate-service
-    build: ./
+    image: strhlv/currency-rate-service:latest
     ports:
       - "9090:8080"
     depends_on:
