@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrencyRate {
+public class CurrencyRateNBRB {
 
     @JsonProperty("Cur_ID")
     private Long currencyId;
@@ -23,5 +23,5 @@ public class CurrencyRate {
     private String currencyName;
 
     @JsonProperty("Cur_OfficialRate")
-    private Double officialRate;
+    private Double actualCurrencyRate;
 }

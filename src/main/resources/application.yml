@@ -1,2 +1,11 @@
-nb-rb:
-  rate-url: https://api.nbrb.by/exrates/rates/{currencyAbbreviation}
+application:
+  title: Currency rate application
+  description: Application for currency rate checking
+  version: 0.0.1
+
+bank-service:
+  url: ${BANK_API_URL:https://api.nbrb.by/exrates/rates/{currencyAbbreviation}}
+
+spring:
+  profiles:
+    active: ${BANK_PROFILE:NB-RB}
