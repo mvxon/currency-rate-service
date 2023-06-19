@@ -4,5 +4,5 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class ApplicationConstants {
-    public final static String NB_RB = "NB-RB";
+    public final static String NBRB = "NBRB";
 }

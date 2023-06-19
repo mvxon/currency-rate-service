@@ -1,0 +1,2 @@
+bank-service:
+  url: ${BANK_API_URL:https://api.nbrb.by/exrates/rates/{currencyAbbreviation}}

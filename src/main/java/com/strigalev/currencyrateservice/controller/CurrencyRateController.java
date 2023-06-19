@@ -2,6 +2,7 @@ package com.strigalev.currencyrateservice.controller;
 
 
 import com.strigalev.currencyrateservice.dto.CurrencyRateResponse;
+import com.strigalev.currencyrateservice.exception.AbbreviationNotPresentException;
 import com.strigalev.currencyrateservice.service.CurrencyRateService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -9,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +38,9 @@ public class CurrencyRateController {
             @ApiResponse(responseCode = "500", description = "INTERNAL ERROR", content = @Content)
     })
     public ResponseEntity<CurrencyRateResponse> getById(@RequestParam String abbreviation) {
+        if (StringUtils.isBlank(abbreviation)) {
+            throw new AbbreviationNotPresentException();
+        }
         return ResponseEntity.ok(currencyRateService.getCurrencyRateByAbbreviation(abbreviation));
     }
 }
